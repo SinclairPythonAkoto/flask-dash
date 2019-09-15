@@ -107,7 +107,7 @@ app.layout = html.Div(children=[
                 'title': 'Dash Data Visualization'
             }
         }
-    )
+    ),
     dcc.Interval(
         id='interval-component',
         interval=1*1000, # in milliseconds
