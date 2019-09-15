@@ -1,1 +1,1 @@
-web: gunicorn flask-dash:server
+web: gunicorn flask-dash.wsgi:server --log-file=-
