@@ -75,7 +75,7 @@ def leng_sf():
 	# list length of entries in sf
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
     return list(range(len([s.amount for s in city_data])))
-    
+
 def leng_mont():
 	# list length of entries in sf
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
@@ -107,6 +107,11 @@ app.layout = html.Div(children=[
                 'title': 'Dash Data Visualization'
             }
         }
+    )
+    dcc.Interval(
+        id='interval-component',
+        interval=1*1000, # in milliseconds
+        n_intervals=0
     )
 ])
 
