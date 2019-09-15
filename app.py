@@ -64,19 +64,18 @@ def cities():
 def sf_data():
 	# get all the numbers from san fran
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
-    return [s.amount for s in city_data]
-
-def leng_sf():
-	# list length of entries in sf
-    city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
-    return list(range(len([s.amount for s in city_data])))
-
+    return ([s.amount for s in city_data])
 
 def mont_data():
 	# get all numbers from montreal
 	city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
 	return ([s.amount for s in city_data])
-	
+
+def leng_sf():
+	# list length of entries in sf
+    city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
+    return list(range(len([s.amount for s in city_data])))
+    
 def leng_mont():
 	# list length of entries in sf
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
