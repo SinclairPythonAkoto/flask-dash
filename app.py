@@ -66,36 +66,22 @@ def sf_data():
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
     return [s.amount for s in city_data]
 
-
-def mont_data():
-	# get all numbers from montreal
-	city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
-	return ([s.amount for s in city_data])
-
-
 def leng_sf():
 	# list length of entries in sf
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="sf").all()
     return list(range(len([s.amount for s in city_data])))
 
+
+def mont_data():
+	# get all numbers from montreal
+	city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
+	return ([s.amount for s in city_data])
+	
 def leng_mont():
 	# list length of entries in sf
     city_data = db_session.query(FlightNum).filter(FlightNum.city=="montreal").all()
     return list(range(len([s.amount for s in city_data])))
 
-
-
-@server.route('/test_sf')
-def test_sf():
-	return f"{sf_data()}"
-
-@server.route('/test_mont')
-def test_mont():
-	return f"{mont_data()}"	
-
-@server.route('/len_sf')
-def len_sf():
-	return f"{leng_sf()}"
 
 # dash graph
 app = dash.Dash(
